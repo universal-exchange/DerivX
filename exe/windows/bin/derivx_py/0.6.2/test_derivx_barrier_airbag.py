@@ -91,6 +91,8 @@ class Config(object):
         self.option_fee_interest = 0.0 # 期权费利率
         self.back_end_load = False # 期权费支付方式，False 为前端，True 为后端
         self.is_kop_delay = False # 行权时是立即还是到期支付资金，False 为立即，True 为延期
+        self.knock_o_occur = False # 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出
+        self.knock_o_point = 0.0 # 发生敲出时的价格点位记录，主要用于敲出增强
         self.is_futures = False # 是否期货期权
         self.is_foreign = False # 是否外汇期权
         self.margin_rate = 0.0 # 保证金比例，1 为收取全额保证金，0 为不收保证金
@@ -234,6 +236,8 @@ def Test_DerivX_Barrier_Airbag():
     config.option_fee_interest = 0.03 # 期权费利率
     config.back_end_load = False # 期权费支付方式，False 为前端，True 为后端
     config.is_kop_delay = False # 行权时是立即还是到期支付资金，False 为立即，True 为延期
+    config.knock_o_occur = False # 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出
+    config.knock_o_point = 0.0 # 发生敲出时的价格点位记录，主要用于敲出增强
     config.is_futures = False # 是否期货期权
     config.is_foreign = False # 是否外汇期权
     config.margin_rate = 1.0 # 保证金比例，1 为收取全额保证金，0 为不收保证金

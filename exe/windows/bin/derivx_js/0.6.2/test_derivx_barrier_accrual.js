@@ -93,6 +93,8 @@ class Config {
         this.option_fee_interest = 0.0 // 期权费利率
         this.back_end_load = false // 期权费支付方式，false 为前端，true 为后端
         this.is_kop_delay = false // 敲出后是立即还是延期支付资金，false 为立即，true 为延期
+        this.knock_o_occur = false // 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出 // 累计期权很少用于融资，故未实际实现功能
+        this.knock_o_point = 0.0 // 发生敲出时的价格点位记录，主要用于敲出增强 // 累计期权很少用于融资，故未实际实现功能
         this.is_futures = false // 是否期货期权
         this.is_foreign = false // 是否外汇期权
         this.margin_rate = 0.0 // 保证金比率，非百分比（绝对） // margin_rate * start_price 为所付保证金
@@ -226,6 +228,8 @@ async function Test_DerivX_Barrier_Accrual() {
     config.option_fee_interest = 0.03 // 期权费利率
     config.back_end_load = false // 期权费支付方式，false 为前端，true 为后端
     config.is_kop_delay = false // 敲出后是立即还是延期支付资金，false 为立即，true 为延期
+    config.knock_o_occur = false // 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出 // 累计期权很少用于融资，故未实际实现功能
+    config.knock_o_point = 0.0 // 发生敲出时的价格点位记录，主要用于敲出增强 // 累计期权很少用于融资，故未实际实现功能
     config.is_futures = true // 是否期货期权
     config.is_foreign = false // 是否外汇期权
     config.margin_rate = 0.0 // 保证金比率，非百分比（绝对） // margin_rate * start_price 为所付保证金

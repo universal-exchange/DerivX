@@ -101,6 +101,8 @@ class Config(object):
         self.option_fee_interest = 0.0 # 期权费利率
         self.back_end_load = False # 期权费支付方式，False 为前端，True 为后端
         self.is_kop_delay = False # 敲出后是立即还是延期支付资金，False 为立即，True 为延期
+        self.knock_o_occur = False # 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出 # 累计期权很少用于融资，故未实际实现功能
+        self.knock_o_point = 0.0 # 发生敲出时的价格点位记录，主要用于敲出增强 # 累计期权很少用于融资，故未实际实现功能
         self.is_futures = False # 是否期货期权
         self.is_foreign = False # 是否外汇期权
         self.margin_rate = 0.0 # 保证金比率，非百分比（绝对） # margin_rate * start_price 为所付保证金
@@ -231,6 +233,8 @@ def Test_DerivX_Barrier_Accrual():
     config.option_fee_interest = 0.03 # 期权费利率
     config.back_end_load = False # 期权费支付方式，False 为前端，True 为后端
     config.is_kop_delay = False # 敲出后是立即还是延期支付资金，False 为立即，True 为延期
+    config.knock_o_occur = False # 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出 # 累计期权很少用于融资，故未实际实现功能
+    config.knock_o_point = 0.0 # 发生敲出时的价格点位记录，主要用于敲出增强 # 累计期权很少用于融资，故未实际实现功能
     config.is_futures = True # 是否期货期权
     config.is_foreign = False # 是否外汇期权
     config.margin_rate = 0.0 # 保证金比率，非百分比（绝对） # margin_rate * start_price 为所付保证金
