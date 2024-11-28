@@ -1,6 +1,9 @@
 
+2024-11-28 0.6.4:
+ - opt 增加 Barrier 类 Sharkfin 结构反向敲出模式。
+
 2024-11-20 0.6.3:
- - opt 增加 Autocall 类 Phoenix、Snowball、Snowball(GPU) 和 Snowball(Stage Coupon) 锁盈缓冲模式。
+ - opt 增加 Autocall 类 Phoenix、Snowball、Snowball(GPU) 和 Snowball(Stage Coupon) 结构锁盈缓冲模式。
 
 2024-10-25 0.6.2:
  - opt 改进 Barrier 类 Accrual、Airbag、Sharkfin 结构到期支付情况下敲出后存续期估值支持。
