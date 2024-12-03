@@ -90,7 +90,7 @@ class Config {
         this.option_fee_interest = 0.0 // 期权费利率
         this.back_end_load = false // 期权费支付方式，false 为前端，true 为后端
         this.is_kop_delay = false // 敲出后是立即还是延期支付资金，false 为立即，true 为延期，欧式的此参数无效
-        this.knock_o_occur = false // 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出
+        this.knock_o_occur = false // 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出 // 欧式敲出观察早于到期日的最好使用延后清算
         this.knock_o_point = 0.0 // 发生敲出时的价格点位记录，主要用于敲出增强 // 目前鲨鱼鳍结构没有增强特性，但双鲨会用于判断敲出方向
         this.is_futures = false // 是否期货期权
         this.is_foreign = false // 是否外汇期权
@@ -226,7 +226,7 @@ async function Test_DerivX_Barrier_Sharkfin() {
     config.option_fee_interest = 0.03 // 期权费利率
     config.back_end_load = false // 期权费支付方式，false 为前端，true 为后端
     config.is_kop_delay = true // 敲出后是立即还是延期支付资金，false 为立即，true 为延期，欧式的此参数无效
-    config.knock_o_occur = false // 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出
+    config.knock_o_occur = false // 是否已经敲出，仅针对敲出后到期支付资金，False 为尚未敲出，True 为已经敲出 // 欧式敲出观察早于到期日的最好使用延后清算
     config.knock_o_point = 0.0 // 发生敲出时的价格点位记录，主要用于敲出增强 // 目前鲨鱼鳍结构没有增强特性，但双鲨会用于判断敲出方向
     config.is_futures = false // 是否期货期权
     config.is_foreign = false // 是否外汇期权

@@ -1,5 +1,5 @@
 # DerivX
-V0.6.4-Beta Build 20241128
+V0.6.4-Beta Build 20241203
 
 最新版本：[C++](https://github.com/universal-exchange/derivx/tree/main/exe/windows/bin)、[Python](https://github.com/universal-exchange/derivx/tree/main/exe/windows/bin/derivx_py/0.6.4)、[JavaScript](https://github.com/universal-exchange/derivx/tree/main/exe/windows/bin/derivx_js/0.6.4)
 
