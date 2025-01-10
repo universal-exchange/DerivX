@@ -1,7 +1,7 @@
 
 # -*- coding: utf-8 -*-
 
-# Copyright (c) 2021-2024 the DerivX authors
+# Copyright (c) 2021-2025 the DerivX authors
 # All rights reserved.
 #
 # The project sponsor and lead author is Xu Rendong.
@@ -84,6 +84,7 @@ class Config(object):
         self.option_type = 0 # 期权类型
         self.barrier_type = 0 # 障碍类型
         self.reverse_knock_out = False # 反向敲出，针对看跌上涨敲出或者看涨下跌敲出类型结构，仅限单鲨，双鲨无效
+        self.strike_payoff_abs = False # 行权时的收益是年化还是绝对，False 为年化，True 为绝对
         self.start_price = 0.0 # 标的价格，具体价格点位
         self.h_l = 0.0 # 障碍价格比率，非百分比，低
         self.h_h = 0.0 # 障碍价格比率，非百分比，高
@@ -94,7 +95,7 @@ class Config(object):
         self.p_l = 0.0 # 参与率，低，未敲出情况下客户对收益的占比要求
         self.p_h = 0.0 # 参与率，高，未敲出情况下客户对收益的占比要求
         
-        self.option_fee = 0.0 # 期权费费率，年化，目前未使用
+        self.option_fee = 0.0 # 期权费费率，默认年化，CalcPrice 时此入参不参与计算
         self.option_fee_interest = 0.0 # 期权费利率
         self.back_end_load = False # 期权费支付方式，False 为前端，True 为后端
         self.is_kop_delay = False # 敲出后是立即还是延期支付资金，False 为立即，True 为延期，欧式的此参数无效
@@ -102,10 +103,10 @@ class Config(object):
         self.knock_o_point = 0.0 # 发生敲出时的价格点位记录，主要用于敲出增强 # 目前鲨鱼鳍结构没有增强特性，但双鲨会用于判断敲出方向
         self.is_futures = False # 是否期货期权
         self.is_foreign = False # 是否外汇期权
-        self.margin_rate = 0.0 # 保证金比例，1 为收取全额保证金，0 为不收保证金，目前未使用
-        self.margin_interest = 0.0 # 保证金利率，目前未使用
+        self.margin_rate = 0.0 # 保证金比例，1 为收取全额保证金，0 为不收保证金
+        self.margin_interest = 0.0 # 保证金利率
         self.discount_payoff = False # 是否对票息等收支进行贴现，False 为不贴现，True 为做贴现
-        self.discount_margin = False # 是否对保证金收支进行贴现，False 为不贴现，True 为做贴现，目前未使用
+        self.discount_margin = False # 是否对保证金收支进行贴现，False 为不贴现，True 为做贴现
         self.discount_option_fee = False # 是否对期权费收支进行贴现，影响期权费后付及先付时交易占用资金，False 为不贴现，True 为做贴现
         self.compound_option_fee = False # 是否对期权费收支进行复利，影响期权费先付及后付时垫付占用资金，False 为不复利，True 为做复利
         self.extend_end_days = 0 # 产品结束时延后清算天数(交易日)，期间票息和保证金等照算
@@ -217,6 +218,7 @@ def Test_DerivX_Barrier_Sharkfin():
     config.option_type = g_option_american # 期权类型
     config.barrier_type = g_sharkfin_ucdp # 障碍类型
     config.reverse_knock_out = False # 反向敲出，针对看跌上涨敲出或者看涨下跌敲出类型结构，仅限单鲨，双鲨无效
+    config.strike_payoff_abs = False # 行权时的收益是年化还是绝对，False 为年化，True 为绝对
     config.start_price = 100.0 # 标的价格，具体价格点位
     config.h_l = 0.95 # 障碍价格比率，非百分比，低
     config.h_h = 1.05 # 障碍价格比率，非百分比，高
@@ -227,7 +229,7 @@ def Test_DerivX_Barrier_Sharkfin():
     config.p_l = 1.0 # 参与率，低，未敲出情况下客户对收益的占比要求
     config.p_h = 1.0 # 参与率，高，未敲出情况下客户对收益的占比要求
     
-    config.option_fee = 0.035 # 期权费费率，年化，CalcPrice 时此入参不参与计算
+    config.option_fee = 0.035 # 期权费费率，默认年化，CalcPrice 时此入参不参与计算
     config.option_fee_interest = 0.03 # 期权费利率
     config.back_end_load = False # 期权费支付方式，False 为前端，True 为后端
     config.is_kop_delay = True # 敲出后是立即还是延期支付资金，False 为立即，True 为延期，欧式的此参数无效
@@ -235,10 +237,10 @@ def Test_DerivX_Barrier_Sharkfin():
     config.knock_o_point = 0.0 # 发生敲出时的价格点位记录，主要用于敲出增强 # 目前鲨鱼鳍结构没有增强特性，但双鲨会用于判断敲出方向
     config.is_futures = False # 是否期货期权
     config.is_foreign = False # 是否外汇期权
-    config.margin_rate = 0.0 # 保证金比例，1 为收取全额保证金，0 为不收保证金，目前未使用
-    config.margin_interest = 0.0 # 保证金利率，目前未使用
+    config.margin_rate = 0.0 # 保证金比例，1 为收取全额保证金，0 为不收保证金
+    config.margin_interest = 0.0 # 保证金利率
     config.discount_payoff = False # 是否对票息等收支进行贴现，False 为不贴现，True 为做贴现
-    config.discount_margin = False # 是否对保证金收支进行贴现，False 为不贴现，True 为做贴现，目前未使用
+    config.discount_margin = False # 是否对保证金收支进行贴现，False 为不贴现，True 为做贴现
     config.discount_option_fee = False # 是否对期权费收支进行贴现，影响期权费后付及先付时交易占用资金，False 为不贴现，True 为做贴现
     config.compound_option_fee = False # 是否对期权费收支进行复利，影响期权费先付及后付时垫付占用资金，False 为不复利，True 为做复利
     config.extend_end_days = 0 # 产品结束时延后清算天数(交易日)，期间票息和保证金等照算

@@ -1,7 +1,8 @@
 
-2024-12-03 0.6.4:
+2025-01-10 0.6.4:
  - opt 增加 Barrier 类 Sharkfin 结构反向敲出模式。
  - opt 改进 Barrier 类 Sharkfin 结构欧式情况下敲出后延期清算估值支持。
+ - opt 增加 Barrier 类 Sharkfin 结构绝对行权收益和保证金收益率支持。
 
 2024-11-20 0.6.3:
  - opt 增加 Autocall 类 Phoenix、Snowball、Snowball(GPU) 和 Snowball(Stage Coupon) 结构锁盈缓冲模式。
