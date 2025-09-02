@@ -1,4 +1,7 @@
 
+2025-09-01 0.6.5:
+ - new 增加 Asian Accrual 亚式累计结构及其计算示例。
+
 2025-01-10 0.6.4:
  - opt 增加 Barrier 类 Sharkfin 结构反向敲出模式。
  - opt 改进 Barrier 类 Sharkfin 结构欧式情况下敲出后延期清算估值支持。
