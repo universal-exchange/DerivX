@@ -1,4 +1,8 @@
 
+2025-12-22 0.6.7:
+ - opt 适配新的 CyberX 框架版本。
+ - new 增加 Vanilla MC 香草欧式/美式蒙卡定价结构及其计算示例。
+
 2025-09-15 0.6.6:
  - new 增加 Autocall Snowball Parisian 巴黎雪球结构及其计算示例。
 
